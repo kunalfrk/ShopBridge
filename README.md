@@ -81,7 +81,7 @@
 * Frontend Functionality - 2 hours
 * Frontend Presentation - 1 hour
 * Backend-Frontend Integration - 5 hours
-* Unit Test Coverage - 13 hours
+* Unit Test Coverage - 3 hours
 
 ---
 ## 📑 License
