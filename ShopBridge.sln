@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopBridge.Web", "ShopBridge.Web\ShopBridge.Web.csproj", "{1BDEEBEA-4365-40D8-8FAC-650F816E2B0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopBridge.Entities", "ShopBridge.Entities\ShopBridge.Entities.csproj", "{15EF1B09-433E-4964-AC22-9D4FB2A349B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopBridge.Database", "ShopBridge.Database\ShopBridge.Database.csproj", "{37CA54F8-AC75-444C-A627-7EE5CBDB7926}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopBridge.Services", "ShopBridge.Services\ShopBridge.Services.csproj", "{4C4526DA-DBA2-4A09-8D09-7B1AAC955374}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopBridge.WebAPI", "ShopBridge.WebAPI\ShopBridge.WebAPI.csproj", "{8DB5CA14-78E8-48C4-93C0-25B904AF66B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopBridge.UnitTests", "ShopBridge.UnitTests\ShopBridge.UnitTests.csproj", "{FD37CEE8-23EF-460D-9698-CBECF5B708A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{98BC6ABE-C1BA-4584-915D-C083CF68279B}"
+	ProjectSection(SolutionItems) = preProject
+		OpenCover-NUnit.bat = OpenCover-NUnit.bat
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BDEEBEA-4365-40D8-8FAC-650F816E2B0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BDEEBEA-4365-40D8-8FAC-650F816E2B0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BDEEBEA-4365-40D8-8FAC-650F816E2B0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BDEEBEA-4365-40D8-8FAC-650F816E2B0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15EF1B09-433E-4964-AC22-9D4FB2A349B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15EF1B09-433E-4964-AC22-9D4FB2A349B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15EF1B09-433E-4964-AC22-9D4FB2A349B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15EF1B09-433E-4964-AC22-9D4FB2A349B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37CA54F8-AC75-444C-A627-7EE5CBDB7926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37CA54F8-AC75-444C-A627-7EE5CBDB7926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37CA54F8-AC75-444C-A627-7EE5CBDB7926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37CA54F8-AC75-444C-A627-7EE5CBDB7926}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C4526DA-DBA2-4A09-8D09-7B1AAC955374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C4526DA-DBA2-4A09-8D09-7B1AAC955374}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C4526DA-DBA2-4A09-8D09-7B1AAC955374}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C4526DA-DBA2-4A09-8D09-7B1AAC955374}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DB5CA14-78E8-48C4-93C0-25B904AF66B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DB5CA14-78E8-48C4-93C0-25B904AF66B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DB5CA14-78E8-48C4-93C0-25B904AF66B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DB5CA14-78E8-48C4-93C0-25B904AF66B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD37CEE8-23EF-460D-9698-CBECF5B708A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD37CEE8-23EF-460D-9698-CBECF5B708A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD37CEE8-23EF-460D-9698-CBECF5B708A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD37CEE8-23EF-460D-9698-CBECF5B708A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4B482CC-4629-4F0B-95EB-ACF84B4CA8E1}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,228 @@
+﻿@model ShopBridge.Entities.InventoryItemDTO
+
+@{
+    ViewBag.Title = "Create";
+}
+<div id="itemForm">
+    <h2><i class="fa fa-plus-square"></i> Create</h2>
+
+
+    <div id="loader" class="modal">
+        <div class="center">
+            <img src="~/Content/45.gif" />
+        </div>
+    </div>
+    @using (Ajax.BeginForm("Create", "", new AjaxOptions { OnSuccess = "fnSuccess", OnFailure = "fnFailure", HttpMethod = "POST", LoadingElementId = "loader" }, new { enctype = "multipart/form-data", id = "createProduct" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <div style="display:inline;float:left;">
+                <h4>Inventory Item</h4>
+            </div>
+            <div style="display:inline;float:right;">
+                <h6>Fields marked with <span style="color:red;">*</span> are mandatory.</h6>
+            </div>
+            <div class="clearfix"></div>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group required">
+                @Html.LabelFor(model => model.InvItem.Name, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.InvItem.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.InvItem.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.InvItem.Description, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.InvItem.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.InvItem.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group required">
+                @Html.LabelFor(model => model.InvItem.Price, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @Html.EditorFor(model => model.InvItem.Price, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.InvItem.Price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.InvItem.ImagePath, htmlAttributes: new { @class = "control-label col-md-5" })
+                <div class="col-md-7">
+                    @*@Html.EditorFor(model => model.InvItem.ImagePath, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.InvItem.ImagePath, "", new { @class = "text-danger" })*@
+
+                    <input type="file" id="ImageFileId" name="ImageFile" class="form-control-file" accept="image/x-png,image/jpg,image/jpeg" onchange="vali_type_photo(this.id);loadphoto(event)" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-5" style="color: #9c9c9c;">(Valid Format: .JPG, .JPEG, .PNG & Size Less than 500 KB.)</label>
+                <div class="col-md-7">
+                    <img id="imgphoto" alt="No Image" src="" style="width: 160px; height: 170px;" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-5 col-md-7">
+                    <input type="submit" value="Save" class="btn btn-success" />
+                    @*<input type="button" id="saveBtn" value="Save" class="btn btn-success" />*@
+                </div>
+            </div>
+        </div>
+        <br />
+        <h2><i class="fa fa-list-alt"></i> List</h2>
+        <h4>Inventory Items</h4>
+        <hr />
+        <table class="table table-responsive table-striped">
+            <thead class="table-heading">
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        Description
+                    </td>
+                    <td>
+                        Price
+                    </td>
+                    <td>
+                        Image
+                    </td>
+                    <td>
+                        Action
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.InventoryItemList)
+                {
+                    <tr>
+                        <td>
+                            <a onclick="ShowDetails(@item.ID)" style="cursor:pointer;">@item.Name</a>
+                        </td>
+                        <td>
+                            @item.Description
+                        </td>
+                        <td>
+                            @item.Price.ToString("c")
+                        </td>
+                        <td>
+                            @*@item.ImagePath*@
+                            <img src="@Url.Content(@item.ImagePath)" width="70" height="70" />
+                        </td>
+                        <td>
+                            <a onclick="Delete(@item.ID)" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</a>
+                            @*@Ajax.ActionLink("Delete", "Delete", "InventoryItem", new AjaxOptions { HttpMethod = "DELETED", OnSuccess = "fnSuccessDelete",OnFailure= "fnFailure" })*@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    }
+
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+
+    <script>
+
+        function Delete(id) {
+            alertify.confirm('Shop Bridge', 'Are you sure you want to delete this record?', function () {
+                $.ajax({
+                    url: "/InventoryItem/Delete/" + id,
+                    method: "GET",
+                    success: function (data) {
+                        debugger;
+                        bindList(data);
+                        fnSuccessDelete();
+                    },
+                    error: function (err) {
+                        debugger;
+                        console.error(err);
+                    }
+                })
+            }, null);
+        }
+
+        function ShowDetails(id) {
+            window.location.href = '@Url.Action("Details","InventoryItem")/' + id
+        }
+
+        function fnSuccess(data) {
+            debugger;
+            bindList(data);
+
+            var successMessage = 'Saved Successfully'
+            if (successMessage != '')
+                alertify.success(successMessage);
+        }
+
+        function fnFailure(err) {
+            var errorMessage = 'Oops! Operation Could Not Be Completed!'
+            if (errorMessage != '')
+                alertify.error(errorMessage);
+        }
+
+        function fnSuccessDelete() {
+            debugger;
+            var successMessage = 'Deleted Successfully'
+            if (successMessage != '')
+                alertify.success(successMessage);
+
+            //bindList();
+        }
+
+        function bindList(data) {
+            var newDoc = document.open("text/html", "replace");
+            newDoc.write(data);
+            newDoc.close();
+        }
+
+        function vali_type_photo(id) {
+            var id_value = document.getElementById(id).value;
+            var imgsize = document.getElementById(id);
+            var id_name = id.name;
+            var size = parseFloat(imgsize.files[0].size / 1024).toFixed(2);
+            if (size > 500) {
+                alertify.error('Please select image size less than 500 KB')
+                document.getElementById(id).value = "";
+            }
+
+            if (id_value != '') {
+                var valid_extensions = /(.jpg|.jpeg|.png)$/i;
+                if (valid_extensions.test(id_value)) {
+                    return true;
+                }
+                else {
+                    document.getElementById(id).value = "";
+                    alertify.error('Please select valid file type.')
+                }
+            }
+        }
+
+        var loadphoto = function (event) {
+            debugger;
+            var output = document.getElementById("imgphoto");
+            output.src = URL.createObjectURL(event.target.files[0]);
+        };
+
+    </script>
+}
+@section Styles {
+    <link href="~/Content/loader.css" rel="stylesheet" type="text/css" />
+}
+
+
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+
