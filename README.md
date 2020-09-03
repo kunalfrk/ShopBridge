@@ -1,6 +1,6 @@
 # Shop Bridge
 
-**Shop Bridge** is a web application that helps track the different items for sale. It is an inventory managememt system which keeps records of the items with their name, description, price and an attached image of the same.
+**Shop Bridge** is a web application that helps track the different items for sale. It is an inventory management system which keeps records of the items with their name, description, price and an attached image of the same.
 
 This project is built in **ASP.NET MVC (.NET Framework 4.6.1)**
 
