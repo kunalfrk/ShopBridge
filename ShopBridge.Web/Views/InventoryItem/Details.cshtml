@@ -9,40 +9,42 @@
 <div>
     <h4>Inventory Item</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    <div class="center">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
 
-        <dt>
-            
-        </dt>
+            <dt>
 
-        <dd>
-            <img src="@Url.Content(Model.ImagePath)" width="200" height="200" />
-        </dd>
+            </dt>
 
-    </dl>
+            <dd>
+                <img src="@Url.Content(Model.ImagePath)" width="200" height="200" />
+            </dd>
+
+        </dl>
+    </div>
 </div>
 @*<p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
