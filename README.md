@@ -28,28 +28,19 @@ This project is built in **ASP.NET MVC (.NET Framework 4.6.1)**
 ---
 ## 🛠 Setup
 
-1. Pull the code.
-2. Open **ShopBridge.sln** file via Visual Studio.
-3. Insert connectionString in the _**App.config**_ file of **ShopBridge.Database** project as shown below :
-
-```
-<connectionStrings>
-    <add name="ShopBridgeConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=ShopBridgeDB;Integrated Security=True"
-      providerName="System.Data.SqlClient" />
-  </connectionStrings>
-```
-4. Open **Package Manager Console** in Visual Studio _(**Tools > NuGet Package Manager > Package Manager Console**)_
-5. In the Package Manager Console, select Default Project as **ShopBridge.Database**.
-6. Run these commands in the console as shown below :
-
-    > NOTE : Press Enter after writing each of these commands.
+1. Download the project from this repository.
+2. Right-click on downloaded zip file. Click Properties. Check the checkbox for **Unblock**. Click Apply.
+	> You can skip this step if you are cloning the repository.
+	
+3. Open **ShopBridge.sln** file via Visual Studio.
+4. Right-click on **ShopBridge.Database** and select **Set as Startup Project**.
+5. Open **Package Manager Console** in Visual Studio _(**Tools > NuGet Package Manager > Package Manager Console**)_.
+	> Make sure Default Project is selected as **ShopBridge.Database** in the Package Manager Console.
+6. Copy the below command and paste it in the Package Manager Console window.
     
-* `PM > enable-migrations `
-* `PM > add-migration initialized`
-* `PM > update-database`
-
-7. Right-click **ShopBridge.WebAPI** in Visual Studio.Then go to _**Properties > Web >** Copy the specified **Project Url**_.
-8. Now in Web.Config of **ShopBridge.Web** project, paste and replace the `http://localhost:17476/` part of `<add key="serviceBaseUri" value="http://localhost:17476/api/"/>` with your copied Project Url.
+	`PM > update-database`
+	
+	> NOTE : After pasting, hit *Enter*.
 ---
 ## ⌛ Run Project
 
