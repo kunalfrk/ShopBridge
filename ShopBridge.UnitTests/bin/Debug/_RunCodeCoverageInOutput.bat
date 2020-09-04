@@ -1,0 +1,2 @@
+﻿"..\..\..\packages\OpenCover.4.7.922\tools\OpenCover.Console.exe" -target:"..\..\..\packages\NUnit.ConsoleRunner.3.11.1\tools\nunit3-console.exe" -targetargs: "/noshadow ShopBridge.UnitTests.dll /xml=NUnit.xml" -filter:"+[ShopBridge.WebAPI.Controllers]ShopBridge.WebAPI.Controllers*" -excludebyattribute:"System.CodeDom.Compiler.GeneratedCodeAttribute" -register:user -output:"_CodeCoverageResult.xml"
+"..\..\..\packages\ReportGenerator.4.6.5\tools\net47\ReportGenerator.exe" "-reports:_CodeCoverageResult.xml" "-targetdir:_CodeCoverageReport"

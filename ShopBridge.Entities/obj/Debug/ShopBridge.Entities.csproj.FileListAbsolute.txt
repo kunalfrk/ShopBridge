@@ -1,0 +1,6 @@
+D:\www\ShopBridge\ShopBridge.Entities\bin\Debug\ShopBridge.Entities.dll
+D:\www\ShopBridge\ShopBridge.Entities\bin\Debug\ShopBridge.Entities.pdb
+D:\www\ShopBridge\ShopBridge.Entities\obj\Debug\ShopBridge.Entities.dll
+D:\www\ShopBridge\ShopBridge.Entities\obj\Debug\ShopBridge.Entities.pdb
+D:\www\ShopBridge\ShopBridge.Entities\obj\Debug\ShopBridge.Entities.csproj.CoreCompileInputs.cache
+D:\www\ShopBridge\ShopBridge.Entities\obj\Debug\ShopBridge.Entities.csprojAssemblyReference.cache
